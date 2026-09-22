@@ -1,12 +1,22 @@
-const { SolapiMessageService } = require("solapi");
+const crypto = require("crypto");
 
 function onlyNum(v) {
   return String(v || "").replace(/[^0-9]/g, "");
 }
 
+function authHeader(apiKey, apiSecret) {
+  const date = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+  const salt = crypto.randomBytes(16).toString("hex");
+  const signature = crypto
+    .createHmac("sha256", apiSecret)
+    .update(date + salt)
+    .digest("hex");
+  return "HMAC-SHA256 apiKey=" + apiKey + ", date=" + date + ", salt=" + salt + ", signature=" + signature;
+}
+
 function json(statusCode, data) {
   return {
-    statusCode,
+    statusCode: statusCode,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Content-Type": "application/json"
@@ -16,59 +26,66 @@ function json(statusCode, data) {
 }
 
 exports.handler = async function (event) {
-  const apiKey = process.env.SOLAPI_API_KEY || "";
-  const apiSecret = process.env.SOLAPI_API_SECRET || "";
-  const from = onlyNum(process.env.SOLAPI_FROM);
-  const staffPhone = onlyNum(process.env.STAFF_PHONE);
-
-  if (event.httpMethod !== "POST") {
-    return json(200, {
-      ok: false,
-      message: "POST만 가능합니다.",
-      check: {
-        hasApiKey: !!apiKey,
-        hasApiSecret: !!apiSecret,
-        hasFrom: !!from,
-        from: from,
-        hasStaffPhone: !!staffPhone
-      }
-    });
-  }
-
   try {
-    const body = JSON.parse(event.body || "{}");
-    const customerPhone = onlyNum(body.phone);
+    const apiKey = process.env.SOLAPI_API_KEY || "";
+    const apiSecret = process.env.SOLAPI_API_SECRET || "";
+    const from = onlyNum(process.env.SOLAPI_FROM);
+    const staffPhone = onlyNum(process.env.STAFF_PHONE);
+
+    if (event.httpMethod !== "POST") {
+      return json(200, {
+        ok: false,
+        message: "POST만 가능합니다.",
+        check: {
+          hasApiKey: !!apiKey,
+          hasApiSecret: !!apiSecret,
+          hasFrom: !!from,
+          from: from
+        }
+      });
+    }
 
     if (!apiKey || !apiSecret || !from) {
       return json(500, { ok: false, message: "솔라피 설정이 없습니다." });
     }
 
+    const body = JSON.parse(event.body || "{}");
+    const customerPhone = onlyNum(body.phone);
     const text =
-      "[강아지여행 예약]\n" +
-      "예약자: " + (body.customerName || "고객님") + "\n" +
-      "강아지: " + (body.dogName || "강아지") + "\n" +
-      "날짜: " + (body.date || "-") + "\n" +
-      "시간: " + (body.time || "-") + "\n" +
-      "메뉴: " + (body.menu || "미용") + "\n" +
-      "금액: " + (body.price || "0원");
+      "[강아지여행 예약] " +
+      (body.customerName || "고객") + " / " +
+      (body.dogName || "강아지") + " / " +
+      (body.date || "-") + " " +
+      (body.time || "-") + " / " +
+      (body.menu || "미용") + " / " +
+      (body.price || "0원");
 
-    const messageService = new SolapiMessageService(apiKey, apiSecret);
-    const messages = [];
+    const targets = [];
+    if (customerPhone.length >= 10) targets.push(customerPhone);
+    if (staffPhone.length >= 10) targets.push(staffPhone);
 
-    if (customerPhone.length >= 10) {
-      messages.push({ to: customerPhone, from: from, text: "[고객알림]\n" + text });
+    const results = [];
+    for (var i = 0; i < targets.length; i++) {
+      const res = await fetch("https://api.solapi.com/messages/v4/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: authHeader(apiKey, apiSecret)
+        },
+        body: JSON.stringify({
+          message: {
+            to: targets[i],
+            from: from,
+            text: text
+          }
+        })
+      });
+      const raw = await res.text();
+      results.push({ to: targets[i], status: res.status, raw: raw.slice(0, 300) });
     }
-    if (staffPhone.length >= 10) {
-      messages.push({ to: staffPhone, from: from, text: "[매장알림]\n" + text });
-    }
 
-    const result = await messageService.send(messages);
-    return json(200, { ok: true, result: result });
-    } catch (error) {
-    return json(500, {
-      ok: false,
-      message: String((error && error.message) || error || "문자 발송 실패")
-    });
-  }
+    return json(200, { ok: true, results: results });
+  } catch (e) {
+    return json(500, { ok: false, message: String(e) });
   }
 };
