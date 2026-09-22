@@ -101,10 +101,7 @@ async function completeReservation() {
     console.log("✅ Firestore 저장 성공");
 
     await blockTimeSlot(reservation.date, reservation.time);
-
     await sendKakaoNotification(reservation, dogInfo, menuData);
-
-    alert("🎉 예약이 성공적으로 완료되었습니다!\n고객님과 매장으로 확인 문자가 발송됩니다.");
 
     localStorage.removeItem('currentReservation');
     localStorage.removeItem('currentDogInfo');
@@ -137,13 +134,11 @@ async function blockTimeSlot(dateKey, time) {
 async function sendKakaoNotification(reservation, dog, menuData) {
   const phone = dog.ownerPhone;
   if (!phone) {
-    console.warn("⚠️ 전화번호 없음");
+    alert("전화번호가 없습니다.");
     return;
   }
 
   const serverUrl = "/.netlify/functions/send-kakao";
-
-  console.log("📡 문자 요청 URL:", serverUrl);
 
   try {
     const response = await fetch(serverUrl, {
@@ -160,13 +155,12 @@ async function sendKakaoNotification(reservation, dog, menuData) {
       })
     });
 
+    const resultText = await response.text();
+    alert(resultText);
     console.log("📬 문자 응답 상태:", response.status);
-    if (response.ok) {
-      console.log("✅ 문자 발송 요청 성공");
-    } else {
-      console.warn("⚠️ 문자 발송 실패:", response.status);
-    }
+    console.log("📬 문자 응답 내용:", resultText);
   } catch (e) {
+    alert("문자 요청 실패: " + e.message);
     console.error("❌ 문자 요청 실패:", e);
   }
 }
