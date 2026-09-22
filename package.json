@@ -1,0 +1,6 @@
+{
+  "name": "gangajiyeohaeng",
+  "dependencies": {
+    "solapi": "^5.4.0"
+  }
+}
