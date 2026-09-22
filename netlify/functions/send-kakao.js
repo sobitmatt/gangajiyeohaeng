@@ -64,11 +64,11 @@ exports.handler = async function (event) {
 
     const result = await messageService.send(messages);
     return json(200, { ok: true, result: result });
-  } catch (error) {
+    } catch (error) {
     return json(500, {
       ok: false,
-      message: error.message || "문자 발송 실패",
-      detail: error
+      message: String((error && error.message) || error || "문자 발송 실패")
     });
+  }
   }
 };
