@@ -1,0 +1,44 @@
+/* admin.css - 단순화 버전 */
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.section { margin-bottom: 50px; padding-bottom: 40px; border-bottom: 2px dashed #e8d5b8; }
+.section:last-child { border-bottom: none; }
+
+h3 { color: #2c2218; margin-bottom: 25px; font-size: 1.55rem; }
+
+.form-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 18px; 
+}
+
+.admin-input {
+  width: 100%; padding: 16px 20px; 
+  border: 2px solid #d4b48c; border-radius: 14px;
+  font-size: 1.1rem; background: #fffaf5;
+}
+
+.photo-btn {
+  background: #d4b48c; color: white; 
+  border: none; border-radius: 14px;
+  padding: 16px; font-size: 1.2rem; cursor: pointer;
+}
+
+.dogs-list {
+  display: flex; flex-direction: column; gap: 14px;
+}
+
+.dog-item {
+  background: #fffaf5; 
+  border: 2px solid #d4b48c; 
+  border-radius: 16px;
+  padding: 18px 22px; 
+  font-size: 1.1rem;
+}

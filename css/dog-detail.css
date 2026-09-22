@@ -1,0 +1,312 @@
+/* public/css/dog-detail.css - 모바일 앱 스타일 프리미엄 앨범 */
+body {
+  background: #f9f5f0;
+  font-family: 'Noto Sans KR', system-ui, sans-serif;
+  margin: 0;
+  padding-bottom: 80px;
+  color: #333;
+}
+
+/* ==================== 헤더 ==================== */
+.album-header {
+  background: white;
+  padding: 20px 16px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.profile-wrapper {
+  position: relative;
+}
+
+.profile-pic {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e8d5b8;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.profile-overlay {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: #d4b48c;
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: none;
+}
+
+.album-title {
+  font-size: 1.05rem;
+  color: #999;
+  font-weight: 500;
+}
+
+.dog-name {
+  font-size: 1.48rem;
+  font-weight: 700;
+  color: #2c2218;
+  margin-top: 2px;
+}
+
+/* 헤더 아이콘 */
+.header-icons {
+  font-size: 1.7rem;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+/* ==================== 탭 ==================== */
+.tabs {
+  display: flex;
+  background: white;
+  padding: 12px 12px 10px;
+  gap: 8px;
+  overflow-x: auto;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.tab {
+  padding: 10px 22px;
+  border: none;
+  background: #f0e6d8;
+  border-radius: 30px;
+  font-size: 1.03rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.tab.active {
+  background: #d4b48c;
+  color: white;
+  font-weight: 600;
+}
+
+/* ==================== 관리자 업로드 바 ==================== */
+.admin-upload-bar {
+  padding: 12px 16px;
+  background: white;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.upload-btn {
+  flex: 1;
+  padding: 14px;
+  background: #d4b48c;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ==================== 미디어 그리드 ==================== */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 12px;
+  padding: 16px;
+}
+
+.media-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.media-card:hover {
+  transform: scale(1.03);
+}
+
+.media-card img,
+.media-card iframe {
+  width: 100%;
+  height: 168px;
+  object-fit: cover;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 1.4rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* ==================== 사진 상세 모달 ==================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  width: 94%;
+  max-width: 1100px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  max-height: 92vh;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.modal-image {
+  flex: 1;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.modal-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+}
+
+.modal-info {
+  width: 340px;
+  padding: 28px;
+  overflow-y: auto;
+  background: #fffaf5;
+}
+
+.modal-date {
+  color: #d4b48c;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.modal-desc {
+  line-height: 1.75;
+  font-size: 1.08rem;
+  color: #444;
+}
+
+/* ==================== 관리자 버튼 ==================== */
+.admin-detail-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #d4b48c;
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 25px rgba(212,180,140,0.5);
+  cursor: pointer;
+  z-index: 2000;
+}
+
+/* ==================== 반응형 ==================== */
+@media (max-width: 768px) {
+  .media-grid {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 10px;
+    padding: 12px;
+  }
+  
+  .modal-content {
+    flex-direction: column;
+    max-height: 95vh;
+  }
+  
+  .modal-info {
+    width: 100%;
+  }
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(231, 76, 60, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.media-card {
+  position: relative;
+}
+
+.video-modal {
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  z-index: 1001;
+}

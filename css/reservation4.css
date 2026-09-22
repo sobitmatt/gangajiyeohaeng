@@ -1,0 +1,80 @@
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(135deg, #ff8fab, #ff6b9d);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  color: white;
+  text-decoration: none;
+}
+
+.final-main {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.summary-box {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.agreement-box {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.agreement-text {
+  background: #fff9fb;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #ffe4e1;
+}
+
+.agree-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+.final-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.45rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff2d7a, #ff4d94);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.final-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
