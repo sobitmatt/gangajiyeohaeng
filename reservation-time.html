@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시간 선택 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/reservation.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🐾 강아지여행.com 예약</h1>
+    <a href="reservation.html" class="back-btn">← 날짜 다시 선택</a>
+    <a href="#" onclick="goToAdmin()" class="admin-btn">⚙️ 관리자</a>
+  </header>
+
+  <main class="reservation-main">
+    <div class="step-content active">
+      <h2 id="selected-date-title"></h2>
+      <p class="sub-title">원하는 시간을 선택해주세요</p>
+      
+      <div id="time-cards" class="time-cards"></div>
+    </div>
+  </main>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/reservation-time.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미용 메뉴 선택 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/reservation3.css">
+</head>
+<body>
+  <header>
+    <h1>🐾 미용 메뉴 선택</h1>
+    <a href="reservation2.html" class="back-btn">← 이전으로</a>
+  </header>
+
+  <main class="menu-main">
+    <h2>미용 스타일을 선택해주세요</h2>
+
+    <div class="menu-grid" id="menuGrid"></div>
+
+    <div id="detailSection" class="hidden">
+      <h3>크기를 선택해주세요</h3>
+      <div class="size-options" id="sizeOptions"></div>
+
+      <h3>무게 구간을 선택해주세요</h3>
+      <div class="weight-table" id="weightTable"></div>
+    </div>
+
+    <div class="price-box">
+      예상 미용 비용 <strong id="totalPrice">0원</strong>
+    </div>
+
+    <!-- 추가 서비스 수정 -->
+    <div class="extra-options">
+      <h3>추가 서비스</h3>
+      
+     <!-- 추가요금 -->
+      <div class="extra-item">
+        <strong>추가요금</strong>
+        <small>
+          • 기장, 모량, 엉킴 추가 : 5,000원부터<br>
+          • 클리핑 길이 추가 : 0.5cm 5,000원 / 1cm 10,000원 / 2cm 15,000원
+        </small>
+      </div>
+    </div>
+
+    <button class="next-btn" onclick="goToNextStep()">저장하고 다음 단계 →</button>
+  </main>
+
+  <script src="/js/reservation3.js"></script>
+</body>
+</html>

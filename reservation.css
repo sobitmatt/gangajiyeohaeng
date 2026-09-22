@@ -1,0 +1,201 @@
+/* /css/reservation.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', system-ui, sans-serif;
+  background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.28)), 
+              url('/images/shop-interior.jpg') center/cover fixed;
+  color: #fff;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+header {
+  background: rgba(255, 182, 193, 0.95);
+  color: #fff;
+  text-align: center;
+  padding: 75px 1rem 20px;   /* 모바일 겹침 방지용 상단 패딩 */
+  position: relative;
+  z-index: 10;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  background: rgba(0,0,0,0.4);
+  z-index: 20;
+}
+
+/* Main Content */
+.reservation-main {
+  max-width: 920px;
+  margin: 20px auto;
+  padding: 0 12px;
+}
+
+.step-content {
+  background: rgba(255,255,255,0.95);
+  color: #333;
+  padding: 30px 18px;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  margin-top: 10px;
+}
+
+h2 {
+  color: #9c1f57;
+  text-align: center;
+  font-size: 1.42rem;
+  margin-bottom: 12px;
+}
+
+.sub-title {
+  text-align: center;
+  color: #555;
+  margin-bottom: 28px;
+  font-size: 1.05rem;
+}
+
+/* Month Header */
+.month-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.month-title {
+  font-size: 1.62rem;
+  color: #9c1f57;
+  font-weight: 700;
+  text-align: center;
+  flex: 1;
+}
+
+/* Calendar */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.cal-header {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 4px;
+  background: #f5e8d3;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.cal-day {
+  background: rgba(255,255,255,0.98);
+  border-radius: 10px;
+  padding: 8px 4px;
+  min-height: 82px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cal-day .date {
+  font-size: 1.08rem;
+  font-weight: bold;
+  color: #9c1f57;
+}
+
+/* Time Cards */
+.time-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.time-card {
+  padding: 24px 20px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 1.32rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid #ddd;
+}
+
+.time-card.available {
+  border-color: #4caf50;
+  background: #f0f8e8;
+  color: #1e4620;
+}
+
+.time-card.unavailable {
+  border-color: #f44336;
+  background: #fff0f0;
+  color: #8b1f2b;
+  cursor: not-allowed;
+}
+
+.time-card.available:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(76,175,80,0.3);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 640px) {
+  header {
+    padding-top: 85px;   /* 모바일에서 더 여유롭게 */
+  }
+  
+  .step-content {
+    padding: 25px 15px;
+  }
+  
+  .cal-day {
+    min-height: 78px;
+  }
+  
+  .cal-day .date {
+    font-size: 1.02rem;
+  }
+}
+
+/* 관리자 버튼 스타일 (reservation.css 하단에 추가) */
+.admin-btn {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  background: rgba(0,0,0,0.4);
+  z-index: 20;
+}
+
+.admin-btn:hover {
+  background: rgba(178, 44, 94, 0.9);
+  transform: scale(1.05);
+}

@@ -1,0 +1,221 @@
+/* reservation3.css */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(135deg, #ff8fab, #ff6b9d);
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h2, h3 {
+  color: #ff2d7a;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 미용 메뉴 */
+.menu-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.menu-item {
+  background: white;
+  padding: 18px 25px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.menu-item:hover {
+  border-color: #ff8fab;
+  transform: translateX(8px);
+}
+
+.menu-item.selected {
+  border-color: #ff2d7a;
+  background: #fff0f5;
+}
+
+/* 크기 선택 */
+.size-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.size-btn {
+  background: white;
+  padding: 18px 32px;
+  border-radius: 20px;
+  border: 3px solid #ffe4e1;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #3f2a1e;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 140px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.size-btn:hover {
+  border-color: #ff8fab;
+  transform: translateY(-5px);
+}
+
+.size-btn.selected {
+  background: #ff2d7a;
+  color: white;
+  border-color: #ff2d7a;
+  box-shadow: 0 8px 20px rgba(255, 45, 122, 0.3);
+}
+
+/* 무게 구간 */
+.weight-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.weight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 16px 22px;
+  border-radius: 15px;
+  border: 2px solid #ffe4e1;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.weight-item:hover {
+  border-color: #ff8fab;
+  transform: translateX(5px);
+}
+
+.weight-item.selected {
+  background: #ff2d7a;
+  color: white;
+  border-color: #ff2d7a;
+}
+
+.weight-item .weight-range {
+  font-weight: 600;
+}
+
+.weight-item .price {
+  font-weight: bold;
+  color: #ff2d7a;
+}
+
+/* 가격 표시 */
+.price-box {
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 25px;
+  background: #fff0f5;
+  border-radius: 20px;
+  margin: 25px 0;
+}
+
+.price-box strong {
+  color: #ff2d7a;
+  font-size: 2.4rem;
+}
+
+/* 추가 옵션 */
+.extra-options {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.extra-label {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* 다음 버튼 */
+.next-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff8fab, #ff4d94);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* 추가 서비스 스타일 */
+.extra-options {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin: 25px 0;
+}
+
+.extra-item {
+  background: #fff9fb;
+  padding: 18px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  border-left: 5px solid #ff8fab;
+}
+
+.extra-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.extra-content strong {
+  color: #ff2d7a;
+}
+
+.price-info {
+  color: #ff2d7a;
+  font-weight: 600;
+  margin-top: 6px;
+}

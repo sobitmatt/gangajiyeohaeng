@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예약 상세 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/adminreservation-detail.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📋 예약 상세 정보</h1>
+    <a href="#" onclick="goBack()" class="back-btn">← 뒤로가기</a>
+  </header>
+
+  <main class="detail-main">
+    <div id="reservationDetail" class="detail-card"></div>
+
+    <div class="history-section">
+      <h3>📖 이용 기록</h3>
+      <div id="usageHistory" class="history-list"></div>
+    </div>
+
+    <div class="memo-section">
+      <h3>📝 관리자 메모 / 미용 후 소견</h3>
+      <textarea id="adminMemo" rows="8" placeholder="미용 후 특이사항, 고객 응대 내용, 다음 예약 시 주의사항 등을 기록하세요..."></textarea>
+      <button id="saveMemoBtn" class="save-memo-btn">💾 메모 저장하기</button>
+    </div>
+  </main>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/adminreservation-detail.js"></script>
+</body>
+</html>

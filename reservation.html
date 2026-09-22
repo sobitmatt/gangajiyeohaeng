@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사전예약 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/reservation.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🐾 강아지여행.com 예약</h1>
+    <a href="/" class="back-btn">← 홈으로</a>
+    <a href="#" onclick="goToAdmin()" class="admin-btn">⚙️ 관리자</a>
+  </header>
+
+  <main class="reservation-main">
+    <div class="step-content active">
+      <h2>예약 날짜를 선택해주세요</h2>
+      
+      <div class="calendar-section">
+        <div class="month-header">
+          <button class="month-btn" id="prev-btn" onclick="prevMonth()">←</button>
+          <h3 id="month-title" class="month-title"></h3>
+          <button class="month-btn" id="next-btn" onclick="nextMonth()">→</button>
+        </div>
+        <div id="calendar" class="calendar"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/reservation.js"></script>
+</body>
+</html>

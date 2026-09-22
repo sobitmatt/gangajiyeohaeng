@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 앨범 - 강아지여행.com</title>
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/album.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🐾 강아지 앨범</h1>
+    <a href="/index.html" class="back-to-main">← 메인페이지로 돌아가기</a>
+  </header>
+
+  <!-- 검색창 -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="강아지 이름 또는 견주 이름으로 검색하세요...">
+  </div>
+
+  <!-- 강아지 카드 목록 (고급형) -->
+  <div class="dog-grid" id="dogGrid"></div>
+
+  <!-- 관리자 버튼 -->
+  <button id="adminBtn">🔧 관리자</button>
+
+  <!-- 상세 모달 -->
+  <div id="detailModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2 id="modalDogName"></h2>
+      
+      <div class="tab-buttons">
+        <button onclick="showTab(0)" class="tab-btn active" id="tab-photo">📸 사진 폴더</button>
+        <button onclick="showTab(1)" class="tab-btn" id="tab-video">🎥 영상 폴더</button>
+      </div>
+
+      <div id="photoTab" class="tab-content">
+        <div id="photoGrid" class="media-grid"></div>
+      </div>
+      
+      <div id="videoTab" class="tab-content" style="display:none;">
+        <div id="videoGrid" class="media-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/dogs.js"></script>
+  <script src="/js/album.js"></script>
+</body>
+</html>

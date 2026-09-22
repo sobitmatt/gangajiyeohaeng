@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예약 관리 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/adminbooking.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>⚙️ 예약 관리 페이지</h1>
+    <a href="reservation.html" class="back-btn">← 예약페이지로 돌아가기</a>
+  </header>
+
+  <main class="admin-main">
+    <div class="month-header">
+      <button class="month-btn" id="prev-btn" onclick="prevMonth()">←</button>
+      <h2 id="month-title"></h2>
+      <button class="month-btn" id="next-btn" onclick="nextMonth()">→</button>
+    </div>
+    
+    <p class="description">날짜 안의 시간대를 클릭하면 가능/불가 토글이 됩니다.</p>
+    
+    <div class="top-button-area">
+      <button id="saveBtn" class="save-btn">💾 설정 저장하기</button>
+      <button id="viewReservationsBtn" class="view-reservations-btn">📋 예약목록 보기</button>
+      <button onclick="window.location.href='adminall-list.html'" class="view-reservations-btn">📋 전체목록 보기</button>
+    </div>
+
+    <div id="calendar" class="calendar"></div>
+  </main>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/adminbooking.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 미용 기록 카드 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/adminpast-record.css">
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <!-- 세션 로그인 -->
+  <script src="/js/admin-auth.js"></script>
+
+  <header>
+    <h1>📖 미용 기록 상세</h1>
+    <a href="adminall-list.html" class="back-btn">← 전체 목록으로</a>
+  </header>
+
+  <main class="past-main">
+    <div id="pastRecordDetail" class="record-card"></div>
+  </main>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/adminpast-record.js"></script>
+</body>
+</html>

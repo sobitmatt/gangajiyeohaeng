@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 정보 입력 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/reservation2.css">
+  
+  <!-- 🔥 Firebase SDK (필수!) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🐾 우리 강아지 정보</h1>
+    <a href="reservation.html" class="back-btn">← 이전으로</a>
+  </header>
+
+  <main class="dog-info-main">
+    <div class="form-card">
+      <div class="form-header">
+        <h2>우리 강아지 정보를 입력해주세요</h2>
+        <p class="subtitle">모든 항목은 필수입니다</p>
+      </div>
+
+      <div class="dog-form">
+        <div class="form-group">
+          <label>🐶 강아지 이름 *</label>
+          <input type="text" id="dogName" placeholder="초코">
+        </div>
+        
+        <div class="form-group">
+          <label>👤 견주 이름 *</label>
+          <input type="text" id="ownerName" placeholder="김철수">
+        </div>
+        <div class="form-group">
+          <label>📱 휴대폰 번호 *</label>
+          <input type="tel" id="ownerPhone" placeholder="010-1234-5678">
+        </div>
+
+        <div id="dog-suggestions" class="suggestions"></div>
+
+        <p class="guide-text">※ 모르면 "모름"이라고 적어주세요</p>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label>품종 *</label>
+            <input type="text" id="breed" placeholder="골든리트리버">
+          </div>
+          <div class="form-group half">
+            <label>몸무게 (kg)</label>
+            <input type="text" id="weight" placeholder="12.5 또는 모름">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label>나이 (살)</label>
+            <input type="text" id="age" placeholder="4 또는 모름">
+          </div>
+          <div class="form-group half">
+            <label>성별</label>
+            <select id="gender">
+              <option value="">선택하세요</option>
+              <option value="여아">여아 </option>
+              <option value="남아">남아 </option>
+              <option value="모름">모름</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label>중성화 여부</label>
+            <select id="neutered">
+              <option value="">선택하세요</option>
+              <option value="O">O (했어요)</option>
+              <option value="X">X (안했어요)</option>
+              <option value="모름">모름</option>
+            </select>
+          </div>
+          <div class="form-group half">
+            <label>입질 성향</label>
+            <select id="bite">
+              <option value="">선택하세요</option>
+              <option value="1">1. 한다</option>
+              <option value="2">2. 안한다</option>
+              <option value="3">3. 잘 모르겠다</option>
+              <option value="4">4. 가끔한다</option>
+              <option value="모름">모름</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="next-btn" id="saveBtn">💕 정보 저장하고 다음 단계 →</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/reservation2.js"></script>
+</body>
+</html>

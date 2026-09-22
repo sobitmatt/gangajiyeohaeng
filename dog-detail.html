@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">오복이의 앨범 - 강아지여행.com</title>
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dog-detail.css">
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+  <div class="album-header">
+    <div class="profile-section" onclick="if(isAdmin) uploadProfilePhoto()">
+      <div class="profile-wrapper">
+        <img id="dogProfileImg" src="https://picsum.photos/id/237/300/300" alt="강아지 프로필" class="profile-pic">
+        <div id="profileOverlay" class="profile-overlay">📷</div>
+      </div>
+      <div>
+        <div class="album-title">My Dog Album</div>
+        <div id="dogNameTitle" class="dog-name">밍몽이의 앨범</div>
+      </div>
+    </div>
+    <div class="header-icons">
+      <span onclick="searchByDate()" style="cursor:pointer; font-size:1.7rem;">🔍</span>
+    </div>
+  </div>
+
+  <!-- 탭 -->
+  <div class="tabs">
+    <button onclick="showTab(0)" class="tab active">전체</button>
+    <button onclick="showTab(1)" class="tab">사진</button>
+    <button onclick="showTab(2)" class="tab">동영상</button>
+  </div>
+
+  <!-- 관리자 업로드 바 -->
+  <div id="adminUploadBar" class="admin-upload-bar" style="display:none;">
+    <button onclick="uploadPhoto()" class="upload-btn">📸 사진 추가</button>
+    <button onclick="uploadVideo()" class="upload-btn">🎥 영상 추가</button>
+    <button id="adminLogoutBtn" onclick="adminLogout()" style="display:none; background:#e74c3c; margin-left:10px;">로그아웃</button>
+  </div>
+
+  <!-- 미디어 그리드 -->
+  <div id="mediaContainer" class="media-grid"></div>
+
+  <!-- 사진 상세 모달 -->
+  <div id="photoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePhotoModal()">×</span>
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="">
+      </div>
+      <div class="modal-info">
+        <div id="modalDate" class="modal-date"></div>
+        <div id="modalDesc" class="modal-desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 관리자 버튼 (우측 하단) -->
+  <button id="adminBtnDetail" class="admin-detail-btn">🔧</button>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/dog-detail.js"></script>
+</body>
+</html>

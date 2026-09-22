@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예약 확인 및 동의 - 강아지여행.com</title>
+  <link rel="stylesheet" href="/css/reservation4.css">
+  
+  <!-- 🔥 Firebase SDK (필수) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🐾 예약 최종 확인</h1>
+    <a href="reservation3.html" class="back-btn">← 이전으로</a>
+  </header>
+
+  <main class="final-main">
+    <h2>예약 정보를 확인해주세요</h2>
+
+    <div class="summary-box" id="summaryBox"></div>
+
+    <div class="agreement-box">
+      <h3>미용 동의서</h3>
+      <div class="agreement-text" id="agreementText"></div>
+
+      <label class="agree-label">
+        <input type="checkbox" id="agreeCheck">
+        <strong>위 내용에 모두 동의합니다.</strong>
+      </label>
+    </div>
+
+    <button class="final-btn" id="finalBtn" disabled>✅ 예약 완료하기</button>
+  </main>
+
+  <script src="/js/firebase-config.js"></script>
+  <script src="/js/reservation4.js"></script>
+</body>
+</html>
