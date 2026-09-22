@@ -123,10 +123,11 @@ exports.handler = async function (event) {
       ok: !failed,
       results: results
     });
-  } catch (error) {
+    } catch (error) {
     return json(500, {
       ok: false,
-      message: error.message || "문자 발송 실패"
+      message: String(error && error.message ? error.message : error)
     });
+  }
   }
 };
