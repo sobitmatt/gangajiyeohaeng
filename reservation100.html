@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예약안내 | 강아지여행.com - 원주 프리미엄 애견미용</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap">
+  <style>
+    :root {
+      --cream: #faf7f2;
+      --warm-beige: #f0e6d8;
+      --gold: #c9a961;
+      --gold-dark: #a88b4a;
+      --soft-brown: #5c4a3a;
+      --text: #3a2f28;
+      --white: #ffffff;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--warm-beige) 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .reservation-hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+    .logo { margin-bottom: 30px; }
+    .logo-img { width: 80px; height: 80px; object-fit: contain; margin-bottom: 10px; }
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--soft-brown);
+      margin: 0;
+      letter-spacing: 1px;
+    }
+    .premium-label {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin: 20px 0;
+      font-weight: 500;
+    }
+    .reservation-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 50px 40px;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(92, 74, 58, 0.12);
+      border: 1px solid rgba(201, 169, 97, 0.2);
+    }
+    .reservation-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--soft-brown);
+      margin: 0 0 10px 0;
+    }
+    .reservation-subtitle {
+      font-size: 1rem;
+      color: #8a7a6a;
+      margin-bottom: 35px;
+      font-weight: 300;
+    }
+    .phone-section { margin: 30px 0; }
+    .phone-label {
+      font-size: 0.9rem;
+      color: var(--gold-dark);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .phone-number {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--soft-brown);
+      text-decoration: none;
+      display: block;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .phone-number:hover { color: var(--gold); }
+    .kakao-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #FEE500;
+      color: #3C1E1E;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin: 25px 0 15px;
+      box-shadow: 0 8px 20px rgba(254, 229, 0, 0.4);
+      transition: all 0.3s ease;
+      border: none;
+    }
+    .kakao-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(254, 229, 0, 0.5);
+    }
+    .qr-section {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #eee;
+    }
+    .qr-label {
+      font-size: 0.85rem;
+      color: #8a7a6a;
+      margin-bottom: 15px;
+    }
+    .qr-image {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      padding: 8px;
+      background: white;
+    }
+    .note {
+      font-size: 0.9rem;
+      color: #8a7a6a;
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+    .back-link {
+      margin-top: 40px;
+      color: var(--gold-dark);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--gold); }
+    .corporate-footer {
+      background: #2c241e;
+      color: #d4c8b8;
+      padding: 40px 20px 20px;
+      text-align: center;
+      margin-top: auto;
+    }
+    .company-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px 50px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+    }
+    .info-item strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .copyright {
+      font-size: 0.8rem;
+      color: #8a7a6a;
+      margin: 0;
+    }
+    @media (max-width: 480px) {
+      .reservation-card { padding: 35px 25px; }
+      .phone-number { font-size: 1.9rem; }
+      .reservation-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <section class="reservation-hero">
+    <div class="logo">
+      <img src="/images/dog-logo.png" alt="강아지여행 로고" class="logo-img" onerror="this.style.display='none'">
+      <h1 class="brand-name">강아지여행.com</h1>
+    </div>
+
+    <div class="premium-label">PREMIUM PET GROOMING</div>
+
+    <div class="reservation-card">
+      <h2 class="reservation-title">예약안내</h2>
+      <p class="reservation-subtitle">소중한 우리 아이에게 가장 특별한 미용의 시간을 선물하세요</p>
+
+      <div class="phone-section">
+        <div class="phone-label">전화 예약</div>
+        <a href="tel:05065407036" class="phone-number">050-6540-7036</a>
+      </div>
+
+      <a href="https://open.kakao.com/o/swzsAFVi" target="_blank" rel="noopener noreferrer" class="kakao-btn">
+        <span class="kakao-icon">💬</span>
+        카카오톡으로 예약하기
+      </a>
+
+      <div class="qr-section">
+        <p class="qr-label">카카오톡 오픈채팅 QR 코드</p>
+        <img src="/images/kakao-qr.png" alt="카카오톡 오픈채팅 QR코드" class="qr-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+        <p style="display:none; font-size:0.85rem; color:#aaa;">QR 이미지를 준비 중입니다</p>
+      </div>
+
+      <p class="note">
+        전화 또는 카카오톡으로 편하게 예약 문의해 주세요.<br>
+        강아지의 상태와 원하는 스타일을 말씀해 주시면<br>
+        가장 아름다운 모습으로 모시겠습니다.
+      </p>
+    </div>
+
+    <a href="index.html" class="back-link">← 메인으로 돌아가기</a>
+  </section>
+
+  <footer class="corporate-footer">
+    <div class="company-info">
+      <div class="info-item">
+        <strong>대표자</strong><br>이봄날
+      </div>
+      <div class="info-item">
+        <strong>사업자등록번호</strong><br>279-87-03604
+      </div>
+      <div class="info-item">
+        <strong>주소</strong><br>강원도 원주시 치악고교길 30-16
+      </div>
+      <div class="info-item">
+        <strong>예약 및 문의</strong><br>050-6540-7036
+      </div>
+    </div>
+    <p class="copyright">
+      © 2026 강아지여행.com All Rights Reserved.
+    </p>
+  </footer>
+</body>
+</html>
